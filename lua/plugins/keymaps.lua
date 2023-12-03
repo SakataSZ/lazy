@@ -1,5 +1,11 @@
 return {
   {
+    "L3MON4D3/LuaSnip",
+    keys = function()
+      return {}
+    end,
+  },
+  {
     "hrsh7th/nvim-cmp",
     keys = function()
       local cmp = require("cmp")
@@ -17,6 +23,7 @@ return {
     keys = function()
       return {
         { "<leader>ff", "<cmd> Telescope find_files <cr>", desc = "Find Files" },
+        { "<leader>fk", "<cmd> Telescope keymaps <cr>", desc = "find keymaps" },
         { "<leader>fw", "<cmd> Telescope live_grep <cr>", desc = "Find Word" },
         { "<leader>gt", "<cmd> Telescope git_status <cr>", desc = "Git Status" },
         { "<leader>gc", "<cmd> Telescope git_commits <cr>", desc = "Git Commits" },
@@ -35,7 +42,6 @@ return {
       }
     end,
   },
-  -- LSP keymaps
   {
     "neovim/nvim-lspconfig",
     init = function()
@@ -49,6 +55,12 @@ return {
         keys[#keys + 1] = { "<leader>[d", "<cmd> Lspsaga diagnostics_jump_prev <cr>", desc = "LSP jump previous diagnostic" }
         keys[#keys + 1] = { "<leader>]d", "<cmd> Lspsaga diagnostics_jump_next <cr>", desc = "LSP jump next diagnos" }
       -- stylua: ignore end
+    end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    keys = function()
+      return { { "<leader>mp", "<cmd> MarkdownPreviewToggle<cr>", desc = "Markdown Preview" } }
     end,
   },
 }
