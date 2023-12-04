@@ -1,10 +1,7 @@
 return {
-  {
-    "L3MON4D3/LuaSnip",
-    keys = function()
-      return {}
-    end,
-  },
+  -- stylua: ignore
+  { "L3MON4D3/LuaSnip", keys = function() return {} end },
+
   {
     "hrsh7th/nvim-cmp",
     keys = function()
@@ -12,12 +9,14 @@ return {
       return { { "<C-o>", cmp.mapping.complete(), mode = "i", desc = "complete" } }
     end,
   },
+
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = function()
       return { { "<C-n>", "<cmd> Neotree toggle float <cr>", mode = "n", desc = "toggle neo-tree" } }
     end,
   },
+
   {
     "nvim-telescope/telescope.nvim",
     keys = function()
@@ -32,6 +31,7 @@ return {
       }
     end,
   },
+
   {
     "lewis6991/gitsigns.nvim",
     keys = function()
@@ -42,6 +42,7 @@ return {
       }
     end,
   },
+
   {
     "neovim/nvim-lspconfig",
     init = function()
@@ -57,10 +58,40 @@ return {
       -- stylua: ignore end
     end,
   },
+
   {
     "iamcco/markdown-preview.nvim",
     keys = function()
       return { { "<leader>mp", "<cmd> MarkdownPreviewToggle<cr>", desc = "Markdown Preview" } }
+    end,
+  },
+
+  {
+    "NvChad/nvterm",
+    keys = function()
+      local nvterm = require("nvterm.terminal")
+      -- stylua: ignore
+      return {
+        { "<M-h>", function() nvterm.toggle("horizontal") end, mode = { "t", "n" }, desc = "toggle horizontal terminal" },
+        { "<M-v>", function() nvterm.toggle("vertical") end, mode = { "t", "n" }, desc = "toggle vertical terminal" },
+        { "<M-i>", function() nvterm.toggle("float") end, mode = { "t", "n" }, desc = "toggle floating vertical" },
+      }
+    end,
+  },
+
+  {
+    "folke/flash.nvim",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = function()
+      return {
+        { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+        { "S", mode = { "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+        { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+        { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+        { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+      }
     end,
   },
 }
