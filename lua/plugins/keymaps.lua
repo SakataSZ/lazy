@@ -13,7 +13,7 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = function()
-      return { { "<C-n>", "<cmd> Neotree toggle float <cr>", mode = "n", desc = "toggle neo-tree" } }
+      return { { "<C-n>", "<cmd> Neotree toggle float reveal=true <cr>", mode = "n", desc = "toggle neo-tree" } }
     end,
   },
 
