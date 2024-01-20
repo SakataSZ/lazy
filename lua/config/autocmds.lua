@@ -10,3 +10,8 @@ autocmd("FileType", {
   pattern = "*",
   command = [[setlocal fo-=cro]],
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown" },
+  command = "setlocal nospell",
+})
